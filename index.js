@@ -7,9 +7,10 @@ require('./db/mongoose')
 require('dotenv').config()
 
 const postRouter = require('./routers/postRouter');
+const commentRouter = require('./routers/commentRouter');
 
 const app = express()
-const port = "3000"
+const port = "5000"
 
 app.use(cors({credentials: true}));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +26,7 @@ app.use(function(req, res, next) {
 app.use(express.json())
 
 app.use(postRouter);
+app.use(commentRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
